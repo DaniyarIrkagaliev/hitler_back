@@ -16,6 +16,7 @@ public class AccountEntity {
     private String description;
     private String img_id;
 
+
     public AccountEntity() {
     }
 

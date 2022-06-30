@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class AccountService {
 
-
     @Autowired
     private AccountRepo accountRepo;
 
@@ -29,6 +28,15 @@ public class AccountService {
         }
         return Account.toModel(account);
     }
+
+    public Account getByUsername(String username) throws UserNotFoundException {
+        AccountEntity account = accountRepo.findByUsername(username).get();
+        if (account == null) {
+            throw new UserNotFoundException("Пользователь не найден");
+        }
+        return Account.toModel(account);
+    }
+
 
     public Long delete(Long id) {
         accountRepo.deleteById(id);

@@ -3,7 +3,9 @@ package com.coursework.hitler.repository;
 import com.coursework.hitler.entity.AccountEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface AccountRepo extends CrudRepository <AccountEntity, Long>{
+import java.util.Optional;
 
-    AccountEntity findByUsername (String username);
+public interface AccountRepo extends CrudRepository <AccountEntity, Long>{
+    Optional<AccountEntity> findByUsername(String username);
+//    AccountEntity findByUsername (String username);
 }
